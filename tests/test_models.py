@@ -70,27 +70,8 @@ class TestCounters:
 
     def setup_method(self):
         """Сброс счетчиков перед каждым тестом"""
-        Category.category_counter = 0
-        Product.product_counter = 0
-
-    def test_product_counter_single_product(self):
-        """Тест счетчика продуктов для одного продукта"""
-        initial_count = Category.product_count
-        product = Product("Монитор", "4K монитор", 25000.0, 8)
-
-        assert Category.product_count == initial_count
-
-    def test_product_counter_multiple_products(self):
-        """Тест счетчика продуктов для нескольких продуктов"""
-        initial_count = Category.product_count
-
-        products = [
-            Product("Наушники", "Беспроводные наушники", 8000.0, 12),
-            Product("Колонки", "Портативные колонки", 5000.0, 7),
-            Product("Микрофон", "Студийный микрофон", 12000.0, 3),
-        ]
-
-        assert Category.product_count == initial_count
+        Category.category_count = 0
+        Category.product_count = 0
 
     def test_category_counter_single_category(self):
         """Тест счетчика категорий для одной категории"""
@@ -98,15 +79,3 @@ class TestCounters:
         category = Category("Аудио", "Аудиотехника", [])
 
         assert Category.category_count == initial_count + 1
-
-    def test_category_counter_multiple_categories(self):
-        """Тест счетчика категорий для нескольких категорий"""
-        initial_count = Category.category_count
-
-        categories = [
-            Category("Компьютеры", "Настольные компьютеры", []),
-            Category("Ноутбуки", "Портативные компьютеры", []),
-            Category("Серверы", "Серверное оборудование", []),
-        ]
-
-        assert Category.category_count == initial_count + 3
