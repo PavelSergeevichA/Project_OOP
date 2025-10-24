@@ -13,7 +13,6 @@ class Product:
         self._price = 0.0
         self.price = price
 
-
     @property
     def price(self):
         """Возвращает приватное значение цены."""
@@ -26,7 +25,6 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
         else:
             self._price = new_price
-
 
     @classmethod
     def new_product(cls, product_data: dict):
@@ -60,14 +58,11 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-
     def add_product(self, product):
         self.__products.append(product)
         Category.product_count += 1
-
 
     @property
     def products(self):
         for product in self.__products:
             print(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n")
-
